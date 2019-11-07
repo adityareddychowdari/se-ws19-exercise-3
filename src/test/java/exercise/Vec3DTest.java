@@ -37,27 +37,27 @@ public class Vec3DTest {
     }
 
     @Test
-    public void Vec3DTestNorm1() {
+    public void Vec3DTestNormalize1() {
         Vec3D v1 = new Vec3D(1, 0, 0);
-        assertEquals(1.0f, v1.norm().x, DELTA);
-        assertEquals(0, v1.norm().y, DELTA);
-        assertEquals(0, v1.norm().z, DELTA);
+        assertEquals(1.0f, v1.normalize().x, DELTA);
+        assertEquals(0, v1.normalize().y, DELTA);
+        assertEquals(0, v1.normalize().z, DELTA);
     }
 
     @Test
-    public void Vec3DTestNorm2() {
+    public void Vec3DTestNormalize2() {
         Vec3D v1 = new Vec3D(1, 1, 1);
-        assertEquals(0.58f, v1.norm().x, DELTA);
-        assertEquals(0.58f, v1.norm().y, DELTA);
-        assertEquals(0.58f, v1.norm().z, DELTA);
+        assertEquals(0.58f, v1.normalize().x, DELTA);
+        assertEquals(0.58f, v1.normalize().y, DELTA);
+        assertEquals(0.58f, v1.normalize().z, DELTA);
     }
 
     @Test
-    public void Vec3DTestNorm3() {
+    public void Vec3DTestNormalize3() {
         Vec3D v1 = new Vec3D(3, 4, 5);
-        assertEquals(0.42f, v1.norm().x, DELTA);
-        assertEquals(0.57f, v1.norm().y, DELTA);
-        assertEquals(0.71f, v1.norm().z, DELTA);
+        assertEquals(0.42f, v1.normalize().x, DELTA);
+        assertEquals(0.57f, v1.normalize().y, DELTA);
+        assertEquals(0.71f, v1.normalize().z, DELTA);
     }
 
 }

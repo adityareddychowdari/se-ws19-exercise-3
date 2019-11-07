@@ -86,8 +86,7 @@ public class Vec3D {
      * cross product of two 3D vectors:
      *
      * n.b. The cross product of two 3D vectors is the
-     *      determinant of the corresponding 3 x 3
-     *      [x y z] matrix.
+     *      determinant of the corresponding 3 x 3 matrix.
      *
      * @param other 3D vector of type Vec3D
      * @return resultant vector of type Vec3D
@@ -109,4 +108,3 @@ public class Vec3D {
         return this.mul(1.0f / this.len());
     }
 }
-
