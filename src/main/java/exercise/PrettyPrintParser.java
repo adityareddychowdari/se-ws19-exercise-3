@@ -2,9 +2,9 @@ package exercise;
 
 /**
  * PrettyPrintParser extends XMLParser, overriding
- *  the enter and exit functions to prefix all
- *  opening tags with ⟶ and all closing tags
- *  with ⟵.
+ * the enter and exit functions to prefix all
+ * opening tags with ⟶ and all closing tags
+ * with ⟵ .
  */
 public class PrettyPrintParser extends XMLParser{
     private int indentLevel = 0;
