@@ -3,8 +3,8 @@ package exercise;
 public class Image {
 
     public byte[] data;
-    int width;
-    int height;
+    public int width;
+    public int height;
 
     Image(int width, int height) {
         this.width = width;
@@ -17,7 +17,7 @@ public class Image {
      * The color is determined by the last 3 bytes of `value`, where each byte stands for the color
      * value of red, green, and blue respectively.
      */
-    void set(int x, int y, int value) {
+    public void set(int x, int y, int value) {
         int offset = (y * width + x) * 3;
         data[offset + 0] = (byte) ((value & 0x00FF0000) >> 16);
         data[offset + 1] = (byte) ((value & 0x0000FF00) >> 8);
@@ -27,7 +27,7 @@ public class Image {
     /*
      * Return the color value at position (x,y).
      */
-    int get(int x, int y) {
+    public int get(int x, int y) {
         int offset = (y * width + x) * 3;
 
         int red   = (int) data[offset + 0];

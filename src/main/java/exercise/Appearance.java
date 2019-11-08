@@ -2,5 +2,5 @@ package exercise;
 
 public class Appearance{
 
-    Material material;
+    public Material material;
 }
