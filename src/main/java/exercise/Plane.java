@@ -104,4 +104,21 @@ public class Plane extends Geometry{
         point = null;
         return point;
     }
+    
+    /* Roger
+	public Vec3D intersect(Vec3D ray) {
+		double t1 = ray.mul(this.normal);
+		Vec3D u = this.origin.sub(ray);
+		double t2 = u.mul(this.normal);
+		
+		// No intersection
+		if (t1 == 0.0) return null;
+
+		// Vector is on the plane
+		if (t1 == 0 && t2 ==0) return ray;
+
+		//Vector intercepts one point on the plane
+		else return ray.mul(t1/t2);
+	}
+		*/
 }
