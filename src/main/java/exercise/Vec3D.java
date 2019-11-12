@@ -67,7 +67,7 @@ public class Vec3D {
      * @param other 3D vector of type Vec3D
      * @return resultant double
      */
-    public double mul(Vec3D other) {
+    public double dot(Vec3D other) {
         return x * other.x + y * other.y + z * other.z;
     }
 
