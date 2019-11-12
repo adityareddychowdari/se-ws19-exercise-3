@@ -108,3 +108,4 @@ public class Vec3D {
         return this.mul(1.0f / this.len());
     }
 }
+
