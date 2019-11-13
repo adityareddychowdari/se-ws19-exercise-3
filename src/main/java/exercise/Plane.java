@@ -93,7 +93,7 @@ public class Plane extends Geometry{
         Vec3D point;
 
         if(!uniqueSolution()){
-            // ... check if there is not intersection
+            // ... check if there is no intersection
             point = noIntersection();
 
             // ... only if there is a possible intersection
