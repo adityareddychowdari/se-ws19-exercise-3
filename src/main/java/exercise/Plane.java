@@ -1,7 +1,7 @@
 package exercise;
 
 public class Plane extends Geometry{
-    private Vec3D planePoint, normal;
+    public Vec3D planePoint, normal;
 
     public Plane(Vec3D planePoint, Vec3D normal){
         /* The constructor presupposes using the point-normal form
@@ -32,7 +32,8 @@ public class Plane extends Geometry{
          * ref: <http://thejuniverse.org/PUBLIC/LinearAlgebra/LOLA/planes/pn.html>
          */
 
-        if (normal.dot(rayPoint.sub(planePoint)) == 0){
+        double a = normal.dot(rayPoint.sub(planePoint));
+        if (normal.dot(rayPoint.sub(planePoint)) == 0.0){
             return rayPoint;
         }
         return null;

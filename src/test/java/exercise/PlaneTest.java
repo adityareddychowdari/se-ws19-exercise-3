@@ -14,7 +14,7 @@ public class PlaneTest {
         Plane plane = new Plane(new Vec3D(2, 0, 0), new Vec3D(1, 0, 0));
 
         assertTrue(plane instanceof Geometry);
-        assertEquals(plane.origin, new Vec3D(2, 0, 0));
+        assertEquals(plane.planePoint, new Vec3D(2, 0, 0));
         assertEquals(plane.normal, new Vec3D(1, 0, 0));
     }
 
