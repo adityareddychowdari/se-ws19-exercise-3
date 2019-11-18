@@ -27,6 +27,34 @@ your implementation works. These tests are run automatically with `gradle
 build`.
 You can find the test files in [`src/test/resources`](src/test/resources).
 
+## Travis CI
+Travis CI will automatically compile the code you committed to the repository
+and run the tests. To see the result, open the web page of your repository and
+click on *commits*:
+
+![Repository overview](images/travis1.png)
+
+Then you will see an overview of your commits. Next to each commit you will see
+the Travis CI result: Either a green tick if everything could be compiled and no
+errors occurred, or a red cross otherwise. You can click on that symbol to see
+more details.
+
+![Commit overview](images/travis2.png)
+
+Click on *The build* to get to the output of Travis CI.
+
+![Travis CI overview](images/travis3.png)
+
+On the bottom you can see the output log, which will show you the error messages
+(if there were any).
+
+![Travis CI build](images/travis4.png)
+
+Make sure that your code also runs on Travis CI, otherwise you won’t get all
+points for you solution. Keep in mind that tests can just tell you if they found
+a problem but not that there are no problems, i.e. just because all tests run
+doesn’t mean your code is correct.
+
 ## Updating the Starter Code
 In case we provide bug fixes later, you have to merge them manually into your
 code. To do this add the repository of the starter code as a
