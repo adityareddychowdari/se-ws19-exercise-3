@@ -1,6 +1,7 @@
 package exercise;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.xml.stream.XMLStreamException;
 
 /**
@@ -13,13 +14,12 @@ import javax.xml.stream.XMLStreamException;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-        traceTest3Image();
     }
 
-    private void traceTest3Image() {
+    private void traceTest3Image() throws IOException {
         X3dFile x3d = new X3dFile("src/test/resource/test3.xml");
         Image image = new Image(640, 480);
-        image.trace(x3d);
-        image.writePPM("test3.ppm");
+        image.trace(x3d.sceneEntities);
+        image.writePNG("test3.ppm");
     }
 }

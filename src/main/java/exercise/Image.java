@@ -1,5 +1,10 @@
 package exercise;
 
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
+
 public class Image {
 
     public byte[] data;
@@ -36,6 +41,30 @@ public class Image {
 
         int rgb = ((red & 0x0ff) << 16) | ((green & 0x0ff) << 8) | (blue & 0x0ff);
         return rgb;
+    }
+
+    /*
+     * Saves the image as a png file.
+     *
+     * @param filename File name of the image <em>with</em> file extension (i.e. you have to specify
+     * if you want to have the <pre>.png</pre> ending.
+     */
+	public void writePNG(String filename) throws IOException {
+	    BufferedImage image = getImage();
+	    File outputfile = new File(filename);
+	    ImageIO.write(image, "png", outputfile);
+	}
+
+    private BufferedImage getImage() throws IOException {
+        BufferedImage bufferedImage = new BufferedImage(
+                this.width,
+                this.height,
+                BufferedImage.TYPE_INT_RGB);
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++) {
+                bufferedImage.setRGB(x, y, get(x,y));
+            }
+        return bufferedImage;
     }
 
     /*
