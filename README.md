@@ -1,6 +1,11 @@
 # Software Engineering WS 2019 — Exercise 3
 Starter code for the Software Engineering Exercise.
 
+- [Compiling and Running the Tests](#compiling-and-running-the-tests)
+- [Tests](#tests)
+- [Travis CI](#travis-ci)
+- [Updating the Starter Code](#updating-the-starter-code)
+
 ## Compiling and Running the Tests
 To compile your code and run the tests, run one of the following commands.
 
