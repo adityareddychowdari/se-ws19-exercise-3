@@ -13,11 +13,13 @@ import javax.xml.stream.XMLStreamException;
  */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-        // XMLParser parser = new PrettyPrintParser("./src/test/resources/test1.xml");
-        // parser.parse();
+        traceTest3Image();
+    }
 
-        // lets test drive Plane.java
-        Plane plane = new Plane(new Vec3D(1, 1, 1), new Vec3D(1, 1, 1));
-        plane.intersect(new Vec3D(1, 1,1));
+    private void traceTest3Image() {
+        X3dFile x3d = new X3dFile("src/test/resource/test3.xml");
+        Image image = new Image(640, 480);
+        image.trace(x3d);
+        image.writePPM("test3.ppm");
     }
 }
