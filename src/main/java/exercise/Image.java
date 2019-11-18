@@ -37,4 +37,26 @@ public class Image {
         int rgb = ((red & 0x0ff) << 16) | ((green & 0x0ff) << 8) | (blue & 0x0ff);
         return rgb;
     }
+
+    /*
+     * Return the ray starting from the origin, going through the pixel (x, y) of the image.
+     *
+     * @param x x position of the pixel
+     * @param y y position of the pixel
+     */
+    public Vec3D ray(int x, int y) {
+        throw new UnsupportedOperationException("Image.ray() method not implemented.");
+    }
+
+    /*
+     * Traces the image and writes it to a ppm file.
+     */
+    public void trace(Transform t) {
+    // • From each image pixel, create a ray.
+    // • For each ray, find the Shape which
+    //     ◦ intersects the ray in front of the camera
+    //     ◦ is closest to the camera/origin
+    // • Assign a color of your choice to the corresponding pixel.
+        throw new UnsupportedOperationException("Image.trace() method not implemented.");
+    }
 }
