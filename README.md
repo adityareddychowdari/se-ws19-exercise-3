@@ -1,4 +1,4 @@
-# Software Engineering WS 2019 — Exercise 2
+# Software Engineering WS 2019 — Exercise 3
 Starter code for the Software Engineering Exercise.
 
 ## Compiling and Running the Tests
