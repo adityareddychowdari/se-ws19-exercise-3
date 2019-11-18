@@ -13,10 +13,7 @@ import javax.xml.stream.XMLStreamException;
  *      runs Main.class, displaying the results.
  */
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-    }
-
-    private void traceTest3Image() throws IOException {
+    public static void main(String[] args) throws IOException {
         X3dFile x3d = new X3dFile("src/test/resource/test3.xml");
         Image image = new Image(640, 480);
         image.trace(x3d.sceneEntities);
