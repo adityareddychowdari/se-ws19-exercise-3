@@ -8,7 +8,6 @@ public class Plane extends Geometry{
          * which employs any initial point on the plane and the plane
          * normal.
          */
-
         this.planePoint = planePoint;
         this.normal = normal;
     }
@@ -31,11 +30,10 @@ public class Plane extends Geometry{
          *
          * ref: <http://thejuniverse.org/PUBLIC/LinearAlgebra/LOLA/planes/pn.html>
          */
-
-        double a = normal.dot(rayPoint.sub(planePoint));
         if (normal.dot(rayPoint.sub(planePoint)) == 0.0){
             return rayPoint;
         }
         return null;
     }
 }
+

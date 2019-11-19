@@ -107,22 +107,4 @@ public class Vec3D {
     public Vec3D normalize() {
         return this.mul(1.0f / this.len());
     }
-    
-    /* Roger
-    public double len() {
-        return Math.sqrt(x * x + y * y + z * z);
-    }
-
-    public Vec3D cross(Vec3D other) {
-        return new Vec3D(
-            y * other.z - z * other.y,
-            z * other.x - x * other.z,
-            x * other.y - y * other.x
-            );
-    }
-
-    public Vec3D norm() {
-        return this.mul(1.0 / this.len());
-    }*/
 }
-
