@@ -13,27 +13,33 @@ public class Plane extends Geometry{
     }
 
 
-    /**
-     * intersect checks if a provided ray point exists on a given plane,
-     * i.e., if a ray-plane intersection exists. If an intersection exists
-     * the intersection point closest to the origin is returned.
+    /*
+     * Return intersection of line and plane.
      *
-     * @return Vec3D point closest to the origin
+     * Implementation is based on https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection.
+     * Since the ray always starts in the origin, we can use ray for both l and l_0 (we use the same
+     * Vec3D datatype for points and vectors).
+     * @param ray Line that starts at origin.
+     * @return Intersection point of line and plane. If multiple intersection points exist, the the
+     * closest to the origin is returned. If no intersection exists, return null.
      */
     @Override
-    public Vec3D intersect(Vec3D rayPoint) {
-        /* The point-normal form equation is used to evaluate if the
-         * the ray intersects the plane, i.e., if the ray point lies
-         * on the plane and is orthogonal to the normal
-         *
-         *        normal • ( planePoint - rayPoint ) = 0
-         *
-         * ref: <http://thejuniverse.org/PUBLIC/LinearAlgebra/LOLA/planes/pn.html>
-         */
-        if (normal.dot(rayPoint.sub(planePoint)) == 0.0){
-            return rayPoint;
+    public Vec3D intersect(Vec3D ray) {
+        // Check if line and plane are parallel.
+        if (ray.dot(this.normal) == 0.0) {
+            if (this.planePoint.sub(ray).dot(this.normal) == 0) {
+                // Line is on the plane. Since the ray starts in the origin, we can always return
+                // that.
+                return new Vec3D(0, 0, 0);
+            } else {
+                // The line is parallel to the plane, i.e. there is no intersection.
+                return null;
+            }
+        } else {
+            // Compute the intersection point.
+            double d = (this.planePoint.sub(ray)).dot(this.normal) / ray.dot(this.normal);
+            return ray.mul(d).add(ray);
         }
-        return null;
     }
 }
 
