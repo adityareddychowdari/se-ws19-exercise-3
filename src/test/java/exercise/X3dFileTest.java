@@ -18,10 +18,10 @@ public class X3dFileTest {
         Group group = x3d.sceneEntities;
         assertEquals(group.children.length, 2);
 
-        assertTrue(group[0] instanceof Sphere);
-        assertTrue(group[1] instanceof Cone);
+        assertTrue(group.children[0] instanceof Sphere);
+        assertTrue(group.children[1] instanceof Cone);
 
-        Sphere testSphere = new Sphere(new Vec3D(0.0, -1.0, 0.0), 2.3);
+        Sphere testSphere = new Sphere(2.3, new Vec3D(0.0, -1.0, 0.0));
         Cone testCone = new Cone(4.0, 6.2);
 
         assertEquals(group[0], testSphere);
