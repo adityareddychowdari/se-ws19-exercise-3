@@ -71,7 +71,7 @@ In case we provide bug fixes later, you have to merge them manually into your
 code. To do this add the repository of the starter code as a
 [remote][git-remote]:
 
-    git remote add https://github.com/mmbuw-courses/se-ws19-exercise-$NUMBER.git
+    git remote add upstream https://github.com/mmbuw-courses/se-ws19-exercise-$NUMBER.git
 
 Where `$NUMBER` corresponds the exercise’s number, i.e. for the first assignment
 the URL is `https://github.com/mmbuw-courses/se-ws19-exercise-1.git`.
