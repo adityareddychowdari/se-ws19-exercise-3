@@ -10,7 +10,7 @@ public class EntityTest {
 
     @Test
     public void ConeEntityTest() throws Exception {
-        Cone cone = new Cone(0.0, 0.0);
+        Cone cone = new Cone(new Vec3D(1, 0, 0), 0.0, 0.0);
         assertTrue(cone instanceof Geometry);
         assertThat(cone.height, is(0.0));
         assertThat(cone.radius, is(0.0));
