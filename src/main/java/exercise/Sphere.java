@@ -1,13 +1,13 @@
 package exercise;
 
-public class Sphere extends Geometry{
+public class Sphere extends Geometry {
 
-    public  Vec3D center;
-    public  double radius;
+    public Vec3D center;
+    public double radius;
 
     public Sphere(double radius, Vec3D center){
-        this.center = center;
         this.radius = radius;
+        this.center = center;
     }
 
     @Override
