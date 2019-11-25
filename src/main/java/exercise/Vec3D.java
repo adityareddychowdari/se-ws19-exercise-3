@@ -107,4 +107,17 @@ public class Vec3D {
     public Vec3D normalize() {
         return this.mul(1.0f / this.len());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Vec3D other = (Vec3D) o;
+        if (this.x != other.x) {
+            return false;
+        } else if (this.y != other.y) {
+            return false;
+        } else if (this.z != other.z) {
+            return false;
+        }
+        return true;
+    }
 }
