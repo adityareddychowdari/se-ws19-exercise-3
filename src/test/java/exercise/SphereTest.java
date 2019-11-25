@@ -11,7 +11,7 @@ public class SphereTest {
     @Test
     public void SphereConstructorTest() {
         Sphere sphere = new Sphere(1.0, new Vec3D(2, 0, 0));
-        assertEquals(sphere.radius, 1.0);
+        assertEquals(sphere.radius, 1.0, DELTA);
         assertEquals(sphere.center, new Vec3D(2, 0, 0));
     }
 
@@ -26,7 +26,7 @@ public class SphereTest {
 
     @Test
     public void SphereIntersectionTest2() {
-        Sphere sphere = new Sphere(1, new Vec3D(2, 1, 0));
+        Sphere sphere = new Sphere(1.0, new Vec3D(2, 1, 0));
         Vec3D intersection = sphere.intersect(new Vec3D(1, 0, 0));
         assertEquals(intersection.x, 2.0, DELTA);
         assertEquals(intersection.y, 0.0, DELTA);
