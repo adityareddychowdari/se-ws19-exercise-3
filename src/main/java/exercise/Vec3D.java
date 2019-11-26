@@ -16,15 +16,8 @@ public class Vec3D {
         this.z = z;
     }
 
-    Vec3D(String s) {
-        String[] items = s.split("\\s+");
-        x = Float.parseFloat(items[1]);
-        y = Float.parseFloat(items[2]);
-        z = Float.parseFloat(items[3]);
-    }
-
     public String toString() {
-        return "[ " + x + " " + y + " " + z + " ]";
+        return "[ " + x + ", " + y + ", " + z + " ]";
     }
 
 
