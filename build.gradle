@@ -21,10 +21,10 @@ application {
     mainClassName = javaMainClass
 }
 
-test {
-    dependsOn cleanTest
-    testLogging.showStandardStreams = true
-}
+// test {
+//     dependsOn cleanTest
+//     testLogging.showStandardStreams = true
+// }
 
 repositories {
     // Use jcenter for resolving dependencies.
