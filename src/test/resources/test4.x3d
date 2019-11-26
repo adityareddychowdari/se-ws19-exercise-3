@@ -1,22 +1,22 @@
 <X3D profile='Interactive' version='3.3'  xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation =' http://www.web3d.org/specifications/x3d-3.3.xsd '>
-	<Scene>
-		<Group>
-			<Transform translation='0.0 -1.0 0.0'>
+  <Scene>
+    <Group>
+      <Transform translation='0.0 -1.0 0.0'>
         <Shape>
           <Sphere radius='2.3'/>
           <Appearance>
             <Material diffuseColor='1.0 0.0 0.0'/>
           </Appearance>
         </Shape>
-			</Transform>
-			<Transform translation='-1.0 0.0 0.0'>
-				<Shape>
-					<Cone/>
-					<Appearance>
-						<Material diffuseColor='0.5 0.8 0.0'/>
-					</Appearance>
-				</Shape>
-			</Transform>
-		</Group>
-	</Scene>
+      </Transform>
+      <Transform translation='-1.0 0.0 0.0'>
+        <Shape>
+          <Cone/>
+          <Appearance>
+            <Material diffuseColor='0.5 0.8 0.0'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Group>
+  </Scene>
 </X3D>
