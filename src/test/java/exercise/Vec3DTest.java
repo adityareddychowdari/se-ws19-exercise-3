@@ -9,6 +9,13 @@ public class Vec3DTest {
     final static double DELTA = 0.01;
 
     @Test
+    public void Vec3DtoStringTest() {
+        Vec3D vector = new Vec3D(1.0, 2.0, 3.0);
+        String result = vector.toString();
+        assertEquals("[ 1.0, 2.0, 3.0 ]", result);
+    }
+
+    @Test
     public void Vec3DTestLen() {
         Vec3D v1 = new Vec3D(1, 0, 0);
         Vec3D v2 = new Vec3D(3, 0, 4);
@@ -59,5 +66,4 @@ public class Vec3DTest {
         assertEquals(0.57f, v1.normalize().y, DELTA);
         assertEquals(0.71f, v1.normalize().z, DELTA);
     }
-
 }
