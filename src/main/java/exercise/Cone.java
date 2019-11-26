@@ -1,6 +1,6 @@
 package exercise;
 
-public class Cone extends exercise.Geometry {
+public class Cone extends Geometry {
 
     public Vec3D apex;
     public double radius;

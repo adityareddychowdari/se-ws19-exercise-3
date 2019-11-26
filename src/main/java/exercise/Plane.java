@@ -1,6 +1,6 @@
 package exercise;
 
-public class Plane extends Geometry{
+public class Plane extends Geometry {
     public Vec3D planePoint, normal;
 
     public Plane(Vec3D planePoint, Vec3D normal){
