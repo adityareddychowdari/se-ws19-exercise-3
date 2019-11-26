@@ -2,12 +2,32 @@ package exercise;
 
 public class Cone extends Geometry {
 
+    /*
+     * Top point of the cone.
+     */
     public Vec3D apex;
+
+    /*
+     * Orientation of the cone. Goes from apex to the surface.
+     */
+    public Vec3D axis;
+
     public double radius;
     public double height;
 
+    /*
+     * Create a new cone with default axis (0, -1, 0).
+     */
     public Cone(Vec3D apex, double radius, double height){
         this.apex = apex;
+        this.axis = new Vec3D(0.0, -1.0, 0.0);
+        this.radius = radius;
+        this.height = height;
+    }
+
+    public Cone(Vec3D apex, Vec3D axis, double radius, double height){
+        this.apex = apex;
+        this.axis = axis;
         this.radius = radius;
         this.height = height;
     }
@@ -23,12 +43,9 @@ public class Cone extends Geometry {
         Vec3D o = new Vec3D(0, 0, 0);
         Vec3D co = o.sub(apex);
 
-        // We just assume a fixed orientation for all the cones here
-        Vec3D axis = new Vec3D(0, 0, -1);
-
-        double dv = d.dot(axis);
+        double dv = d.dot(this.axis);
         double csq = Math.cos(angle) * Math.cos(angle);
-        double cov = co.dot(axis);
+        double cov = co.dot(this.axis);
 
         double a = dv * dv - csq;
         double b = 2.0 * (dv * cov - d.dot(co) * csq);
