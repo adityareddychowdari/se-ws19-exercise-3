@@ -21,6 +21,8 @@ public class Sphere extends Geometry {
      */
     @Override
     public Vec3D intersect(Vec3D ray) {
+        ray = ray.normalize();
+
         // Equation from Wikipedia:
         // d = -(l·(o-c)) ± √((l·(o-c))ˆ2 - ||o - c||ˆ2 + rˆ2)
         double d;
