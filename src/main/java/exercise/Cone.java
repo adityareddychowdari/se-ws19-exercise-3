@@ -15,12 +15,14 @@ public class Cone extends Geometry {
     public double radius;
     public double height;
 
+    private final static Vec3D DEFAULT_AXIS = new Vec3D(0.0, -1.0, 0.0);
+
     /*
      * Create a new cone with default axis (0, -1, 0).
      */
     public Cone(Vec3D apex, double radius, double height){
         this.apex = apex;
-        this.axis = new Vec3D(0.0, -1.0, 0.0);
+        this.axis = DEFAULT_AXIS;
         this.radius = radius;
         this.height = height;
     }
