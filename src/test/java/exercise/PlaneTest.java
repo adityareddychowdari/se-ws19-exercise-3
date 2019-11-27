@@ -21,7 +21,8 @@ public class PlaneTest {
     @Test
     public void PlaneIntersectionTest() {
          Plane plane = new Plane(new Vec3D(2, 0, 0), new Vec3D(1, 0, 0));
-         Vec3D intersection = plane.intersect(new Vec3D(1, 1, 0));
+         Ray ray = new Ray(new Vec3D(0, 0, 0), new Vec3D(1, 1, 0));
+         Vec3D intersection = plane.intersect(ray);
          assertEquals(intersection.x, 2.0, DELTA);
          assertEquals(intersection.y, 2.0, DELTA);
          assertEquals(intersection.z, 0.0, DELTA);
@@ -30,7 +31,8 @@ public class PlaneTest {
     @Test
     public void PlaneNoIntersectionTest() {
         Plane plane = new Plane(new Vec3D(2, 0, 0), new Vec3D(1, 0, 0));
-        Vec3D intersection = plane.intersect(new Vec3D(0, 1, 0));
+        Ray ray = new Ray(new Vec3D(0, 0, 0), new Vec3D(0, 1, 0));
+        Vec3D intersection = plane.intersect(ray);
         assertEquals(intersection, null);
     }
 }

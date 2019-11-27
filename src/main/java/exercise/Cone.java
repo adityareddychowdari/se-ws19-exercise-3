@@ -35,14 +35,14 @@ public class Cone extends Geometry {
     }
 
     @Override
-    public Vec3D intersect(Vec3D ray) {
+    public Vec3D intersect(Ray ray) {
         // http://lousodrome.net/blog/light/2017/01/03/intersection-of-a-ray-and-a-cone/
 
         double slantHeight = Math.sqrt(this.height * this.height + this.radius * this.radius);
         double angle = 2 * Math.asin(this.radius / slantHeight);
 
-        Vec3D d = ray.normalize();
-        Vec3D o = new Vec3D(0, 0, 0);
+        Vec3D d = ray.direction.normalize();
+        Vec3D o = ray.origin;
         Vec3D co = o.sub(apex);
 
         double dv = d.dot(this.axis);

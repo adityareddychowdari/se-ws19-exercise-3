@@ -73,7 +73,7 @@ public class Image {
      * @param x x position of the pixel
      * @param y y position of the pixel
      */
-    public Vec3D ray(int x, int y) {
+    public Ray ray(int x, int y) {
         throw new UnsupportedOperationException("Image.ray() method not implemented.");
     }
 

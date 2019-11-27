@@ -16,28 +16,32 @@ public class Plane extends Geometry {
      * If multiple intersection points exist, the intersection point closest to the
      * origin is returned. If no intersection exists, a null is returned.
      *
-     * implementation base on:
-     * https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection.
-     *
-     * @param ray This is a vector describing the rays' line of path (direction) from the origin.
-     * @return Whats returned is the intersection point between the ray and the infinite plane closest to the origin.
+     * Implementation is based on https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection.
+     * Since the ray always starts in the origin, we can use ray for both l and l_0 (we use the same
+     * Vec3D datatype for points and vectors).
+     * @param ray Line that starts at the camera position.
+     * @return Intersection point of line and plane. If multiple intersection points exist, the the
+     * closest to the camera position is returned. If no intersection exists, return null.
      */
     @Override
-    public Vec3D intersect(Vec3D ray) {
-        // check if the ray is contained in the plane (case 1), or if there is no intersection (case 2)
-        if (ray.dot(this.normal) == 0.0) {
-            if (this.planePoint.sub(ray).dot(this.normal) == 0) {
-                // If the ray lies on the plane (i.e., is contained by the plane)
-                // the plane also intersects the ray at the origin and the closest
-                // intersection point is thus the origin itself.
-                return new Vec3D(0, 0, 0);
+    public Vec3D intersect(Ray ray) {
+        Vec3D direction = ray.direction.normalize();
+        Vec3D rayOrigin = ray.origin;
+
+        // Check if line and plane are parallel.
+        if (direction.dot(this.normal) == 0.0) {
+            if (this.planePoint.sub(direction).dot(this.normal) == 0) {
+                // Line is on the plane. Since the ray starts in the camera position, we can always
+                // return that.
+                return ray.origin;
             } else {
                 return null; // if there is no intersection a null is returned
             }
         } else {
-            // compute the single point of intersection (case 3)
-            double d = (this.planePoint.sub(ray)).dot(this.normal) / ray.dot(this.normal);
-            return ray.mul(d).add(ray);
+            // Compute the intersection point.
+            double d = (this.planePoint.sub(rayOrigin)).dot(this.normal) /
+                direction.dot(this.normal);
+            return direction.mul(d).add(rayOrigin);
         }
     }
 }

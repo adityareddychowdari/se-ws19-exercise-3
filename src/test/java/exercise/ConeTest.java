@@ -19,7 +19,7 @@ public class ConeTest {
     @Test
     public void ConeIntersectionTest() {
         Cone cone = new Cone(new Vec3D(2.0, 2.0, 0.0), 2.0, 2.0);
-        Vec3D ray = new Vec3D(2.0, 2.0, 0.0);
+        Ray ray = new Ray(new Vec3D(0.0, 0.0, 0.0), new Vec3D(2.0, 2.0, 0.0));
         Vec3D intersection = cone.intersect(ray);
         assertEquals(intersection.x, 2.0, DELTA);
         assertEquals(intersection.y, 2.0, DELTA);
@@ -29,7 +29,7 @@ public class ConeTest {
     @Test
     public void ConeNoIntersectionTest() {
         Cone cone = new Cone(new Vec3D(2.0, 2.0, 0.0), 2.0, 2.0);
-        Vec3D ray = new Vec3D(2.0, 0.0, 0.0);
+        Ray ray = new Ray(new Vec3D(0.0, 0.0, 0.0), new Vec3D(2.0, 0.0, 0.0));
         Vec3D intersection = cone.intersect(ray);
         assertEquals(intersection, null);
     }

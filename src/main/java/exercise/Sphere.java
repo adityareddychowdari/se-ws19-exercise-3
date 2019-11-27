@@ -20,21 +20,18 @@ public class Sphere extends Geometry {
      * null.
      */
     @Override
-    public Vec3D intersect(Vec3D ray) {
-        ray = ray.normalize();
+    public Vec3D intersect(Ray ray) {
+        Vec3D direction = ray.direction.normalize();
 
         // Equation from Wikipedia:
         // d = -(l·(o-c)) ± √((l·(o-c))ˆ2 - ||o - c||ˆ2 + rˆ2)
         double d;
 
-        // Define the origin.
-        Vec3D o = new Vec3D(0, 0, 0);
-
         // Calculate the difference between the origin and the sphere's center point.
-        Vec3D diff_o_c = o.sub(this.center);
+        Vec3D diff_o_c = ray.origin.sub(this.center);
 
         // Calculate the dot product of the ray vector and the difference (o - c).
-        double dot_l_oc = ray.dot(diff_o_c);
+        double dot_l_oc = direction.dot(diff_o_c);
 
         // Calculate the distance between the origin and the sphere's center point.
         double dist_o_c = diff_o_c.len();
@@ -53,7 +50,7 @@ public class Sphere extends Geometry {
         // If delta = 0, then the line touches the sphere only at one point (one solution).
         if (Math.abs(delta) < epsilon) {
             d = - dot_l_oc;
-            return ray.mul(d);
+            return direction.mul(d);
         }
 
         // If delta < 0, then the line and the sphere do not intersect (no solution).
@@ -67,6 +64,6 @@ public class Sphere extends Geometry {
 
         // Determine the smaller distance and return the point that is closer to the origin.
         d = Math.min(Math.abs(d1), Math.abs(d2));
-        return ray.mul(d);
+        return direction.mul(d).add(ray.origin);
     }
 }

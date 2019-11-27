@@ -18,7 +18,8 @@ public class SphereTest {
     @Test
     public void SphereIntersectionTest1() {
         Sphere sphere = new Sphere(1.0, new Vec3D(2, 0, 0));
-        Vec3D intersection = sphere.intersect(new Vec3D(1, 0, 0));
+        Ray ray = new Ray(new Vec3D(0, 0, 0), new Vec3D(1, 0, 0));
+        Vec3D intersection = sphere.intersect(ray);
         assertEquals(intersection.x, 1.0, DELTA);
         assertEquals(intersection.y, 0.0, DELTA);
         assertEquals(intersection.z, 0.0, DELTA);
@@ -27,7 +28,8 @@ public class SphereTest {
     @Test
     public void SphereIntersectionTest2() {
         Sphere sphere = new Sphere(1.0, new Vec3D(2, 1, 0));
-        Vec3D intersection = sphere.intersect(new Vec3D(1, 0, 0));
+        Ray ray = new Ray(new Vec3D(0, 0, 0), new Vec3D(1, 0, 0));
+        Vec3D intersection = sphere.intersect(ray);
         assertEquals(intersection.x, 2.0, DELTA);
         assertEquals(intersection.y, 0.0, DELTA);
         assertEquals(intersection.z, 0.0, DELTA);
@@ -36,7 +38,8 @@ public class SphereTest {
     @Test
     public void SphereNoIntersectionTest() {
         Sphere sphere = new Sphere(1, new Vec3D(2, 2, 0));
-        Vec3D intersection = sphere.intersect( new Vec3D(1, 0, 0));
+        Ray ray = new Ray(new Vec3D(0, 0, 0), new Vec3D(1, 0, 0));
+        Vec3D intersection = sphere.intersect(ray);
         assertEquals(intersection, null);
     }
 }
