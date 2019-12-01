@@ -1,10 +1,12 @@
 package exercise;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.*;
 import java.io.*;
+import java.util.Iterator;
 
 
 /**
@@ -41,7 +43,8 @@ public class XMLParser{
     public void parse() throws XMLStreamException, FileNotFoundException {
         // file input|output
         File file = new File(filePath);;
-
+        double bottomradi = 0;
+        double heighcone = 0;
         // XMLInputFactory for identifying XML tags
         XMLInputFactory factory = XMLInputFactory.newInstance();
 
@@ -57,8 +60,36 @@ public class XMLParser{
                 StartElement element = (StartElement)event;
                 System.out.println();
                 enter(element.getName().toString());
+                if (element.getName().toString() == "Sphere") {
+                
+                	 Iterator<Attribute> iterator =element.getAttributes();
+                	 while(iterator.hasNext()) {
+                		 Attribute attribute = iterator.next();
+                		 QName rad = attribute.getName();
+                		 if("radius".equalsIgnoreCase(rad.getLocalPart())) {
+                			 double radi = Double.valueOf(attribute.getValue()); 
+                			 Vec3D cent = new Vec3D(0.0,0.0,0.0);
+                			 Sphere mysphere = new Sphere(radi,cent);
+                		 }
+                	 }
+                }
+                if (element.getName().toString() == "Cone") {
+                	Iterator<Attribute> iterator =element.getAttributes();
+               	 while(iterator.hasNext()) {
+               		 Attribute attribute = iterator.next();
+               		 QName rad1 = attribute.getName();
+               		 if("bottomRadius".equalsIgnoreCase(rad1.getLocalPart())) {
+               			  bottomradi = Double.valueOf(attribute.getValue()); 
+               			 }
+               		if("height".equalsIgnoreCase(rad1.getLocalPart())) {
+              			 heighcone = Double.valueOf(attribute.getValue()); 
+              		 }
+               		Vec3D apex = new Vec3D(0.0,0.0,0.0);
+               		System.out.println(apex);
+					Cone mycone = new Cone(apex, bottomradi, heighcone);
+               	 }     	
+                }
             }
-
             // for the closing tag ...
             if (event.isEndElement()){
                 EndElement element = (EndElement) event;
@@ -68,4 +99,3 @@ public class XMLParser{
         }
     }
 }
-
