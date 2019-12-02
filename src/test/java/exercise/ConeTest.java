@@ -33,4 +33,15 @@ public class ConeTest {
         Vec3D intersection = cone.intersect(ray);
         assertEquals(intersection, null);
     }
+
+    @Test
+    public void ConeIntersectionWithBaseTest() {
+        Cone cone = new Cone(new Vec3D(3.0, 2.0, 0.0), 2.0, 2.0);
+        Ray ray = new Ray(new Vec3D(0.0, 0.0, 0.0), new Vec3D(1.0, 0.0, 0.0));
+        Vec3D intersection = cone.intersect(ray);
+
+        assertEquals(intersection.x, 0.0, DELTA);
+        assertEquals(intersection.y, 0.0, DELTA);
+        assertEquals(intersection.z, 0.0, DELTA);
+    }
 }
