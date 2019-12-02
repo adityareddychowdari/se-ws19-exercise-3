@@ -103,14 +103,19 @@ public class Vec3D {
 
     @Override
     public boolean equals(Object o) {
-        Vec3D other = (Vec3D) o;
-        if (this.x != other.x) {
-            return false;
-        } else if (this.y != other.y) {
-            return false;
-        } else if (this.z != other.z) {
+        if (o instanceof Vec3D) {
+            Vec3D other = (Vec3D) o;
+            if (this.x != other.x) {
+                return false;
+            } else if (this.y != other.y) {
+                return false;
+            } else if (this.z != other.z) {
+                return false;
+            }
+            return true;
+        }
+        else {
             return false;
         }
-        return true;
     }
 }
