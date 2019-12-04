@@ -1,6 +1,6 @@
 package exercise;
 
-public abstract class Geometry {
+public class Geometry {
 
-    public abstract Vec3D intersect(Ray ray);
+    public Vec3D intersect(Ray ray)
 }
