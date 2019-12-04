@@ -1,6 +1,15 @@
 package exercise;
 
-public abstract class Geometry {
+public class Geometry {
 
-    public abstract Vec3D intersect(Ray ray);
+    protected int color;
+    public Shape parent;
+
+    Geometry(){
+        color = 0x000000;
+    }
+    
+    public Vec3D intersect(Ray ray){
+        return null;
+    }
 }
