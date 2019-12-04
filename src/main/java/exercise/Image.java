@@ -10,6 +10,8 @@ public class Image {
     public byte[] data;
     public int width;
     public int height;
+    private Vec3D camera = new Vec3D (0, 0, -4.0);
+    private Vec3D screenPlane = new Vec3D (0, 0, 0);
 
     Image(int width, int height) {
         this.width = width;
@@ -27,6 +29,11 @@ public class Image {
         data[offset + 0] = (byte) ((value & 0x00FF0000) >> 16);
         data[offset + 1] = (byte) ((value & 0x0000FF00) >> 8);
         data[offset + 2] = (byte) ((value & 0x000000FF) >> 0);
+    }
+
+    // set camera distance from screen
+    public void setCameraDistance (float dist){
+        this.camera.z = -1*dist;
     }
 
     /*
@@ -81,6 +88,25 @@ public class Image {
      * Traces the image and writes it to a ppm file.
      */
     public void trace(Transform t) {
+        // iterate through every pixel
+        // x as column
+        // y as row
+        for (int row = 0; row < this.height; row++) {
+            for (int column = 0; column < this.width; column++){
+                // • From each image pixel, create a ray.
+                Ray r = this.ray(row, column);
+                Geometry g = t.shape.geometry;
+                Vec3D point = g.intersects(r);
+                if (point == null) continue;
+                if (point.z < this.camera) continue;
+            }
+        }
+       
+        // • For each ray, find the Shape which
+        //     ◦ intersects the ray in front of the camera
+        //     ◦ is closest to the camera/origin
+        // • Assign a color of your choice to the corresponding pixel.
+
         try {
             // file stream Method
             FileOutputStream stream = new FileOutputStream("test");
@@ -92,11 +118,7 @@ public class Image {
             //Threw Debug error
             System.out.println("Error writing test files");
         }
-    // • From each image pixel, create a ray.
-    // • For each ray, find the Shape which
-    //     ◦ intersects the ray in front of the camera
-    //     ◦ is closest to the camera/origin
-    // • Assign a color of your choice to the corresponding pixel.
+    
         throw new UnsupportedOperationException("Image.trace() method not implemented.");
     }
 }
