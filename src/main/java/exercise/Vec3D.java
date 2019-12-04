@@ -16,6 +16,14 @@ public class Vec3D {
         this.z = z;
     }
 
+    //String handling
+    public Vec3D(String parameter) {
+        String[] data = parameter.split("\\s+");
+        this.x = Double.parseDouble(data[0]);
+        this.y = Double.parseDouble(data[1]);
+        this.z = Double.parseDouble(data[2]);
+    }
+
     public String toString() {
         return "[ " + x + ", " + y + ", " + z + " ]";
     }
