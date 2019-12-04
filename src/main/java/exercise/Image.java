@@ -2,7 +2,7 @@ package exercise;
 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import java.io.File;
+import java.io.*;
 import java.io.IOException;
 
 public class Image {
@@ -81,6 +81,17 @@ public class Image {
      * Traces the image and writes it to a ppm file.
      */
     public void trace(Transform t) {
+        try {
+            // file stream Method
+            FileOutputStream stream = new FileOutputStream("test");
+            // write in format of ppM to file
+		    stream.write(new String("P6 "+this.width+" "+this.height+" 255\n").getBytes());
+		    stream.write(data);
+		    stream.close();
+        } catch (Exception e) {
+            //Threw Debug error
+            System.out.println("Error writing test files");
+        }
     // • From each image pixel, create a ray.
     // • For each ray, find the Shape which
     //     ◦ intersects the ray in front of the camera
