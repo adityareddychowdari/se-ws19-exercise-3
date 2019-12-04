@@ -11,7 +11,7 @@ import java.io.*;
  * XMLParser class for parsing xml documents.
  */
 public class XMLParser{
-    public static String filePath;
+    public String filePath;
 
 
     public XMLParser(String filePath){
